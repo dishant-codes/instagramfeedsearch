@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Feed</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body> 
+ 
+    <h1 style="text-align:center;font-family: 'Pacifico', cursive;" class="my-4"> Instagram Feed Search</h1>
+    <div class="container text-center"> 
+    <form id="myform" autocomplete="off">
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">@</span>
+            <input type="text" class="form-control" id="username" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" required>
+        </div>          
+        <input type="submit" value="Search" class="btn btn-outline-dark px-4 ">
+    </form>
+</div> 
+    <div id="instagram-feed" class="instagram_feed my-4" style="background-color: white; border-top-left-radius: 4px; border-top-right-radius: 4px;"></div>
+  </div>
+
+</body>
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+<script src="./instagramfeed.js"></script>
+<script>
+   
+   $(document).ready(function(){
+       $("#myform").submit(function(e){
+           e.preventDefault()
+
+           var username = $("#username").val()
+
+           $.instagramFeed({
+               'username':username,
+               'container':"#instagram-feed",
+               'display_igtv' :true
+           })
+       })
+   })
+</script>
+
+</html>
